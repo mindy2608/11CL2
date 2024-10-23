@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chúc mừng sinh nhật!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #f0f8ff, #ffe4e1, #f5deb3);
+            background-size: 400% 400%;
+            animation: gradient 10s ease infinite;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+            position: relative; /* Giữ các đối tượng trong vùng hiển thị */
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        h1 {
+            font-size: 50px;
+            color: #ff6347;
+            transition: transform 0.3s;
+        }
+
+        h1:hover {
+            transform: scale(1.1);
+        }
+
+        p {
+            font-size: 24px;
+            color: #4682b4;
+        }
+
+        .message {
+            margin-top: 30px;
+            font-size: 28px;
+            font-weight: bold;
+            color: #32cd32;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        /* Bong bóng mô phỏng trọng lực và va chạm */
+        .bubble-physics {
+            position: absolute;
+            bottom: 0;
+            width: 30px;
+            height: 30px;
+            background-color: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            opacity: 0.8;
+            animation: gravity 5s ease-in-out infinite;
+        }
+
+        /* Hiệu ứng trọng lực */
+        @keyframes gravity {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-300px); } /* Lên cao */
+            100% { transform: translateY(0); } /* Rơi xuống */
+        }
+
+        /* Mô phỏng sự va chạm đàn hồi */
+        .bubble-physics:nth-child(odd) {
+            animation: gravity-collision 5s ease-in-out infinite;
+        }
+
+        @keyframes gravity-collision {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-200px); } /* Va chạm nhẹ */
+            60% { transform: translateY(0); } /* Rơi xuống */
+            90% { transform: translateY(-100px); } /* Bật lên lần nữa */
+            100% { transform: translateY(0); }
+        }
+
+        /* Bong bóng quỹ đạo */
+        .bubble-orbit {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: rgba(173, 216, 230, 0.6);
+            border-radius: 50%;
+            animation: orbit 7s linear infinite;
+        }
+
+        /* Hiệu ứng quỹ đạo */
+        @keyframes orbit {
+            0% { transform: rotate(0deg) translateX(200px) rotate(0deg); }
+            100% { transform: rotate(360deg) translateX(200px) rotate(-360deg); }
+        }
+
+        /* Đặt bong bóng theo vị trí ngẫu nhiên */
+        .bubble-physics:nth-child(1) { left: 10%; }
+        .bubble-physics:nth-child(2) { left: 30%; }
+        .bubble-physics:nth-child(3) { left: 50%; }
+        .bubble-physics:nth-child(4) { left: 70%; }
+        .bubble-physics:nth-child(5) { left: 90%; }
+
+        .bubble-orbit { left: 50%; top: 100px; } /* Bong bóng quỹ đạo cố định */
+    </style>
+</head>
+<body>
+    <h1>Chúc mừng sinh nhật thầy!</h1>
+    <p>Chúc thầy một ngày thật nhiều niềm vui và hạnh phúc!</p>
+    <div class="message">Kiểm tra online nha thầy</div>
+
+    <!-- Bong bóng với hiệu ứng trọng lực và va chạm -->
+    <div class="bubble-physics"></div>
+    <div class="bubble-physics"></div>
+    <div class="bubble-physics"></div>
+    <div class="bubble-physics"></div>
+    <div class="bubble-physics"></div>
+
+    <!-- Bong bóng quỹ đạo -->
+    <div class="bubble-orbit"></div>
+
+</body>
+</html>
